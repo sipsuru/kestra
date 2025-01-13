@@ -49,7 +49,13 @@ export default defineConfig({
     },
     optimizeDeps: {
         include: [
-            "lodash"
+            "lodash",
+            // the 3 dependencies below are used by ui-libs
+            // optimizing them allows storybook to run properly
+            // without allowing interop in typescript
+            "dayjs",
+            "debug",
+            "@braintree/sanitize-url"
         ],
         exclude: [
             "* > @kestra-io/ui-libs"

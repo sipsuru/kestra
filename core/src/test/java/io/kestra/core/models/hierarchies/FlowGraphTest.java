@@ -295,6 +295,52 @@ class FlowGraphTest {
         assertThat(flowGraph.getClusters().size(), is(4));
     }
 
+    @Test
+    void finallySequential() throws IllegalVariableEvaluationException, IOException {
+        FlowWithSource flow = this.parse("flows/valids/finally-sequential.yaml");
+        FlowGraph flowGraph = GraphUtils.flowGraph(flow, null);
+
+        assertThat(flowGraph.getNodes().size(), is(13));
+        assertThat(flowGraph.getEdges().size(), is(13));
+        assertThat(flowGraph.getClusters().size(), is(2));
+
+        assertThat(edge(flowGraph, ".*seq.finally.*", ".*seq.a1").getRelation().getRelationType(), is(RelationType.SEQUENTIAL));
+        assertThat(edge(flowGraph, ".*seq.a1", ".*seq.a2").getRelation().getRelationType(), is(RelationType.FINALLY));
+        assertThat(edge(flowGraph, ".*seq.a2", ".*seq.end.*").getRelation().getRelationType(), is(nullValue()));
+    }
+
+    @Test
+    void finallySequentialError() throws IllegalVariableEvaluationException, IOException {
+        FlowWithSource flow = this.parse("flows/valids/finally-sequential-error.yaml");
+        FlowGraph flowGraph = GraphUtils.flowGraph(flow, null);
+
+        assertThat(flowGraph.getNodes().size(), is(15));
+        assertThat(flowGraph.getEdges().size(), is(16));
+        assertThat(flowGraph.getClusters().size(), is(2));
+
+        assertThat(edge(flowGraph, ".*seq.e1", ".*seq.e2").getRelation().getRelationType(), is(RelationType.ERROR));
+        assertThat(edge(flowGraph, ".*seq.e2", ".*seq.finally.*").getRelation().getRelationType(), is(nullValue()));
+        assertThat(edge(flowGraph, ".*seq.finally.*", ".*seq.a1").getRelation().getRelationType(), is(RelationType.SEQUENTIAL));
+        assertThat(edge(flowGraph, ".*seq.a1", ".*seq.a2").getRelation().getRelationType(), is(RelationType.FINALLY));
+        assertThat(edge(flowGraph, ".*seq.a2", ".*seq.end.*").getRelation().getRelationType(), is(nullValue()));
+    }
+
+    @Test
+    void finallyDag() throws IllegalVariableEvaluationException, IOException {
+        FlowWithSource flow = this.parse("flows/valids/finally-dag.yaml");
+        FlowGraph flowGraph = GraphUtils.flowGraph(flow, null);
+
+        assertThat(flowGraph.getNodes().size(), is(17));
+        assertThat(flowGraph.getEdges().size(), is(18));
+        assertThat(flowGraph.getClusters().size(), is(2));
+
+        assertThat(edge(flowGraph, ".*dag.e1", ".*dag.e2").getRelation().getRelationType(), is(RelationType.ERROR));
+        assertThat(edge(flowGraph, ".*dag.e2", ".*dag.finally.*").getRelation().getRelationType(), is(nullValue()));
+        assertThat(edge(flowGraph, ".*dag.finally.*", ".*dag.a1").getRelation().getRelationType(), is(RelationType.DYNAMIC));
+        assertThat(edge(flowGraph, ".*dag.a1", ".*dag.a2").getRelation().getRelationType(), is(RelationType.DYNAMIC));
+        assertThat(edge(flowGraph, ".*dag.a2", ".*dag.end.*").getRelation().getRelationType(), is(nullValue()));
+    }
+
     private FlowWithSource parse(String path) throws IOException {
         URL resource = TestsUtils.class.getClassLoader().getResource(path);
         assert resource != null;
@@ -304,7 +350,7 @@ class FlowGraphTest {
         return yamlParser.parse(file, Flow.class).withSource(Files.readString(file.toPath()));
     }
 
-    private AbstractGraph node(FlowGraph flowGraph, String taskId) {
+    private static AbstractGraph node(FlowGraph flowGraph, String taskId) {
         return flowGraph
             .getNodes()
             .stream()
@@ -314,7 +360,7 @@ class FlowGraphTest {
             .orElseThrow();
     }
 
-    private AbstractGraph nodeByUid(FlowGraph flowGraph, String uid) {
+    private static AbstractGraph nodeByUid(FlowGraph flowGraph, String uid) {
         return flowGraph
             .getNodes()
             .stream()
@@ -323,7 +369,7 @@ class FlowGraphTest {
             .orElseThrow();
     }
 
-    private FlowGraph.Edge edge(FlowGraph flowGraph, String source) {
+    private static FlowGraph.Edge edge(FlowGraph flowGraph, String source) {
         return flowGraph
             .getEdges()
             .stream()
@@ -332,7 +378,7 @@ class FlowGraphTest {
             .orElseThrow();
     }
 
-    private FlowGraph.Edge edge(FlowGraph flowGraph, String source, String target) {
+    private static FlowGraph.Edge edge(FlowGraph flowGraph, String source, String target) {
         return flowGraph
             .getEdges()
             .stream()
@@ -341,7 +387,7 @@ class FlowGraphTest {
             .orElseThrow();
     }
 
-    private List<String> edges(FlowGraph flowGraph, String source) {
+    private static List<String> edges(FlowGraph flowGraph, String source) {
         return flowGraph
             .getEdges()
             .stream()
@@ -350,11 +396,11 @@ class FlowGraphTest {
             .toList();
     }
 
-    private FlowGraph.Cluster cluster(FlowGraph flowGraph, String clusterIdRegex) {
+    private static FlowGraph.Cluster cluster(FlowGraph flowGraph, String clusterIdRegex) {
         return cluster(flowGraph, clusterIdRegex, null);
     }
 
-    private FlowGraph.Cluster cluster(FlowGraph flowGraph, String clusterIdRegex, String value) {
+    private static FlowGraph.Cluster cluster(FlowGraph flowGraph, String clusterIdRegex, String value) {
         if(clusterIdRegex.equals("root")) {
             String[] startEnd = new String[2];
             flowGraph.getNodes().forEach(n -> {

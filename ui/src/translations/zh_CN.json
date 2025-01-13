@@ -694,7 +694,8 @@
               "label": "图表配色方案",
               "classic": "经典",
               "kestra": "Kestra"
-            }
+            },
+            "logs_font_size": "日志字体大小"
           }
         },
         "localization": {
@@ -871,7 +872,8 @@
       "not_auth": "您没有查看此小部件的必要权限。",
       "see_all": "查看全部",
       "success_ratio_tooltip": "成功率是SUCCESS、CANCELLED和WARNING执行次数之和除以终止状态下执行总次数的结果。",
-      "failure_ratio_tooltip": "失败率是FAILED、KILLED和RETRIED执行次数之和除以终止状态下执行总次数的结果。"
+      "failure_ratio_tooltip": "失败率是FAILED、KILLED和RETRIED执行次数之和除以终止状态下执行总次数的结果。",
+      "preview": "仪表板预览"
     },
     "delete_log": "您确定要删除这个log吗？",
     "docs": "文档",
@@ -1035,6 +1037,12 @@
       "format": "将参数输入为 'key:value'",
       "label": "选择过滤器"
     },
-    "custom value": "自定义值"
+    "custom value": "自定义值",
+    "execution restarted": "此执行已重新启动{nbRestart}次。",
+    "chart": "图表",
+    "source only": "仅限来源",
+    "chart preview": "图表预览",
+    "execution replayed": "此执行已被重放。",
+    "execution replay": "此执行是 <code>{originalId}</code> 的重放。"
   }
 }

@@ -694,7 +694,8 @@
               "label": "Esquema de Colores del Gráfico",
               "classic": "Clásico",
               "kestra": "Kestra"
-            }
+            },
+            "logs_font_size": "Tamaño de Fuente de Logs"
           }
         },
         "localization": {
@@ -871,7 +872,8 @@
       "not_auth": "No tienes los permisos necesarios para ver este widget.",
       "see_all": "Ver todo",
       "success_ratio_tooltip": "La Tasa de Éxito es la suma de ejecuciones en estado SUCCESS, CANCELLED y WARNING dividida por el número total de ejecuciones en un estado terminado.",
-      "failure_ratio_tooltip": "La proporción de Failed es la suma de ejecuciones FAILED, KILLED y RETRIED dividida por el número total de ejecuciones en un estado terminado."
+      "failure_ratio_tooltip": "La proporción de Failed es la suma de ejecuciones FAILED, KILLED y RETRIED dividida por el número total de ejecuciones en un estado terminado.",
+      "preview": "Vista previa del Dashboard"
     },
     "delete_log": "¿Está seguro de que desea eliminar el log?",
     "docs": "Documentos",
@@ -1035,6 +1037,12 @@
       "format": "Escriba el parámetro como 'key:value'",
       "label": "Elegir filtros"
     },
-    "custom value": "Valor personalizado"
+    "custom value": "Valor personalizado",
+    "execution restarted": "Esta ejecución se ha reiniciado {nbRestart} vez/veces.",
+    "chart": "Gráfico",
+    "source only": "Solo fuente",
+    "chart preview": "Vista previa del gráfico",
+    "execution replayed": "Esta ejecución ha sido reproducida.",
+    "execution replay": "Esta ejecución es una repetición de <code>{originalId}</code>."
   }
 }

@@ -38,7 +38,7 @@
     import Executions from "../executions/Executions.vue";
     import EmptyState from "../layout/EmptyState.vue";
     import {mapState} from "vuex";
-    import State from "../../utils/state.js";
+    import {State} from "@kestra-io/ui-libs";
     import Status from "../Status.vue";
     import noConcurrencyImage from "../../assets/no_concurrency.svg";
 

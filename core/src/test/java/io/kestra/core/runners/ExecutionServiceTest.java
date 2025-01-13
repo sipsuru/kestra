@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import io.kestra.core.junit.annotations.ExecuteFlow;
 import io.kestra.core.junit.annotations.KestraTest;
 import io.kestra.core.junit.annotations.LoadFlows;
+import io.kestra.core.models.Label;
 import io.kestra.core.models.executions.Execution;
 import io.kestra.core.models.flows.Flow;
 import io.kestra.core.models.flows.FlowWithSource;
@@ -62,9 +63,9 @@ class ExecutionServiceTest {
         assertThat(restart.getTaskRunList(), hasSize(3));
         assertThat(restart.getTaskRunList().get(2).getState().getCurrent(), is(State.Type.RESTARTED));
         assertThat(restart.getTaskRunList().get(2).getState().getHistories(), hasSize(4));
-
         assertThat(restart.getId(), is(execution.getId()));
         assertThat(restart.getTaskRunList().get(2).getId(), is(execution.getTaskRunList().get(2).getId()));
+        assertThat(restart.getLabels(), hasItem(new Label(Label.RESTARTED, "true")));
     }
 
     @Test
@@ -97,9 +98,9 @@ class ExecutionServiceTest {
         assertThat(restart.getTaskRunList(), hasSize(3));
         assertThat(restart.getTaskRunList().get(2).getState().getCurrent(), is(State.Type.RESTARTED));
         assertThat(restart.getTaskRunList().get(2).getState().getHistories(), hasSize(4));
-
         assertThat(restart.getId(), not(execution.getId()));
         assertThat(restart.getTaskRunList().get(2).getId(), not(execution.getTaskRunList().get(2).getId()));
+        assertThat(restart.getLabels(), hasItem(new Label(Label.RESTARTED, "true")));
     }
 
     @RetryingTest(5)
@@ -115,6 +116,7 @@ class ExecutionServiceTest {
         assertThat(restart.getTaskRunList().stream().filter(taskRun -> taskRun.getState().getCurrent() == State.Type.RESTARTED).count(), greaterThan(1L));
         assertThat(restart.getTaskRunList().stream().filter(taskRun -> taskRun.getState().getCurrent() == State.Type.RUNNING).count(), greaterThan(1L));
         assertThat(restart.getTaskRunList().getFirst().getId(), is(restart.getTaskRunList().getFirst().getId()));
+        assertThat(restart.getLabels(), hasItem(new Label(Label.RESTARTED, "true")));
     }
 
     @RetryingTest(5)
@@ -130,6 +132,7 @@ class ExecutionServiceTest {
         assertThat(restart.getTaskRunList().stream().filter(taskRun -> taskRun.getState().getCurrent() == State.Type.RESTARTED).count(), greaterThan(1L));
         assertThat(restart.getTaskRunList().stream().filter(taskRun -> taskRun.getState().getCurrent() == State.Type.RUNNING).count(), greaterThan(1L));
         assertThat(restart.getTaskRunList().getFirst().getId(), is(restart.getTaskRunList().getFirst().getId()));
+        assertThat(restart.getLabels(), hasItem(new Label(Label.RESTARTED, "true")));
     }
 
     @Test
@@ -145,6 +148,7 @@ class ExecutionServiceTest {
 
         assertThat(restart.getTaskRunList().getFirst().getState().getCurrent(), is(State.Type.RESTARTED));
         assertThat(restart.getTaskRunList().getFirst().getState().getHistories(), hasSize(4));
+        assertThat(restart.getLabels(), hasItem(new Label(Label.RESTARTED, "true")));
     }
 
     @Test
@@ -164,8 +168,8 @@ class ExecutionServiceTest {
         assertThat(restart.getState().getHistories(), hasSize(1));
         assertThat(restart.getState().getHistories().getFirst().getDate(), not(is(execution.getState().getStartDate())));
         assertThat(restart.getTaskRunList(), hasSize(0));
-
         assertThat(restart.getId(), not(execution.getId()));
+        assertThat(restart.getLabels(), hasItem(new Label(Label.REPLAY, "true")));
     }
 
     @Test
@@ -182,9 +186,9 @@ class ExecutionServiceTest {
         assertThat(restart.getTaskRunList(), hasSize(2));
         assertThat(restart.getTaskRunList().get(1).getState().getCurrent(), is(State.Type.RESTARTED));
         assertThat(restart.getTaskRunList().get(1).getState().getHistories(), hasSize(4));
-
         assertThat(restart.getId(), not(execution.getId()));
         assertThat(restart.getTaskRunList().get(1).getId(), not(execution.getTaskRunList().get(1).getId()));
+        assertThat(restart.getLabels(), hasItem(new Label(Label.REPLAY, "true")));
     }
 
     @Test
@@ -200,9 +204,9 @@ class ExecutionServiceTest {
         assertThat(restart.getState().getHistories(), hasSize(4));
         assertThat(restart.getTaskRunList(), hasSize(20));
         assertThat(restart.getTaskRunList().get(19).getState().getCurrent(), is(State.Type.RESTARTED));
-
         assertThat(restart.getId(), not(execution.getId()));
         assertThat(restart.getTaskRunList().get(1).getId(), not(execution.getTaskRunList().get(1).getId()));
+        assertThat(restart.getLabels(), hasItem(new Label(Label.REPLAY, "true")));
     }
 
     @Test
@@ -222,6 +226,7 @@ class ExecutionServiceTest {
 
         assertThat(restart.getId(), not(execution.getId()));
         assertThat(restart.getTaskRunList().get(1).getId(), not(execution.getTaskRunList().get(1).getId()));
+        assertThat(restart.getLabels(), hasItem(new Label(Label.REPLAY, "true")));
     }
 
     @Test
@@ -241,6 +246,7 @@ class ExecutionServiceTest {
 
         assertThat(restart.getId(), not(execution.getId()));
         assertThat(restart.getTaskRunList().get(1).getId(), not(execution.getTaskRunList().get(1).getId()));
+        assertThat(restart.getLabels(), hasItem(new Label(Label.REPLAY, "true")));
     }
 
     @Test
@@ -260,6 +266,7 @@ class ExecutionServiceTest {
 
         assertThat(restart.getId(), not(execution.getId()));
         assertThat(restart.getTaskRunList().get(1).getId(), not(execution.getTaskRunList().get(1).getId()));
+        assertThat(restart.getLabels(), hasItem(new Label(Label.REPLAY, "true")));
     }
 
     @Test
@@ -279,6 +286,7 @@ class ExecutionServiceTest {
 
         assertThat(restart.getId(), not(execution.getId()));
         assertThat(restart.getTaskRunList().get(1).getId(), not(execution.getTaskRunList().get(1).getId()));
+        assertThat(restart.getLabels(), hasItem(new Label(Label.REPLAY, "true")));
     }
 
     @Test
@@ -298,6 +306,7 @@ class ExecutionServiceTest {
 
         assertThat(restart.getId(), not(execution.getId()));
         assertThat(restart.getTaskRunList().get(1).getId(), not(execution.getTaskRunList().get(1).getId()));
+        assertThat(restart.getLabels(), hasItem(new Label(Label.REPLAY, "true")));
     }
 
     @Test
@@ -386,5 +395,21 @@ class ExecutionServiceTest {
 
         assertThat(executionRepository.findById(execution.getTenantId(),execution.getId()), is(Optional.empty()));
         assertThat(logRepository.findByExecutionId(execution.getTenantId(),execution.getId(), Level.INFO), hasSize(4));
+    }
+
+    @Test
+    @LoadFlows({"flows/valids/pause_no_tasks.yaml"})
+    void shouldKillPausedExecutions() throws Exception {
+        Execution execution = runnerUtils.runOneUntilPaused(null, "io.kestra.tests", "pause_no_tasks");
+        Flow flow = flowRepository.findByExecution(execution);
+
+        assertThat(execution.getTaskRunList(), hasSize(1));
+        assertThat(execution.getState().getCurrent(), is(State.Type.PAUSED));
+
+        Execution killed = executionService.kill(execution, flow);
+
+        assertThat(killed.getState().getCurrent(), is(State.Type.RESTARTED));
+        assertThat(killed.findTaskRunsByTaskId("pause").getFirst().getState().getCurrent(), is(State.Type.KILLED));
+        assertThat(killed.getState().getHistories(), hasSize(4));
     }
 }

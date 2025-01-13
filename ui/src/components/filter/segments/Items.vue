@@ -93,7 +93,7 @@
 </script>
 
 <style scoped lang="scss">
-@import "../styles/filter.scss";
+@import "../styles/filter";
 
 .dropdown {
     width: 400px;

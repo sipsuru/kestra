@@ -541,7 +541,7 @@
 </script>
 
 <style lang="scss">
-@import "./styles/filter.scss";
+@import "./styles/filter";
 
 $included: 144px;
 $refresh: 104px;

@@ -126,6 +126,7 @@
       "demo": "Get a demo"
     },
     "source": "Source",
+    "source only": "Source only",
     "home": "Home",
     "create": "Create",
     "create_flow": "Create Flow",
@@ -753,6 +754,7 @@
             "mode": "Theme Mode",
             "editor_theme": "Editor Theme",
             "editor_font_size": "Editor Font Size",
+            "logs_font_size": "Logs Font Size",
             "editor_font_family": "Editor Font Family",
             "editor_folding_stratgy": "Automatic Code Folding in the Editor",
             "environment_name": "Environment Name",
@@ -932,7 +934,8 @@
       "trigger_disabled": "This trigger can only be enabled through code.",
       "description": "Description",
       "no_flow_description": "This flow has no description.",
-      "not_auth": "You don't have the necessary permissions to view this widget."
+      "not_auth": "You don't have the necessary permissions to view this widget.",
+      "preview": "Dashboard preview"
     },
     "docs": "Docs",
     "active-slots": "Active slots",
@@ -943,7 +946,7 @@
         "sub_title": "Click on the Execute button to start your first workflow execution.",
         "guidance_desc": "Need guidance to execute your flow?",
         "guidance_sub_desc": "Follow the documentation for all the info you need."
-    },    
+    },
     "execution_guide": {
       "get_started": {
         "title": "Get Started ⚡",
@@ -986,6 +989,9 @@
     "cron": "Cron",
     "execution failed header": "Execution failed!",
     "execution failed message": "With last error: <code>{message}</code>",
+    "execution restarted": "This execution has been restarted {nbRestart} time(s).",
+    "execution replay": "This execution is a replay of <code>{originalId}</code>.",
+    "execution replayed": "This execution has been replayed.",
     "task run id": "TaskRun ID",
     "active": "Active",
     "flows imported": "Flows imported",
@@ -1050,6 +1056,8 @@
         "show_chart": "Show main chart"
       }
     },
-    "custom value": "Custom value"
+    "custom value": "Custom value",
+    "chart": "Chart",
+    "chart preview": "Chart preview"
   }
 }

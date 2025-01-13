@@ -694,7 +694,8 @@
               "label": "चार्ट रंग योजना",
               "classic": "क्लासिक",
               "kestra": "Kestra"
-            }
+            },
+            "logs_font_size": "लॉग्स फ़ॉन्ट आकार"
           }
         },
         "localization": {
@@ -871,7 +872,8 @@
       "not_auth": "आपके पास इस विजेट को देखने की आवश्यक अनुमतियाँ नहीं हैं।",
       "see_all": "सभी देखें",
       "success_ratio_tooltip": "सफलता अनुपात SUCCESS, CANCELLED और WARNING निष्पादन का योग है, जिसे समाप्त स्थिति में कुल निष्पादन की संख्या से विभाजित किया जाता है।",
-      "failure_ratio_tooltip": "असफल अनुपात, FAILED, KILLED और RETRIED निष्पादन का योग है, जिसे समाप्त स्थिति में कुल निष्पादन की संख्या से विभाजित किया जाता है।"
+      "failure_ratio_tooltip": "असफल अनुपात, FAILED, KILLED और RETRIED निष्पादन का योग है, जिसे समाप्त स्थिति में कुल निष्पादन की संख्या से विभाजित किया जाता है।",
+      "preview": "डैशबोर्ड पूर्वावलोकन"
     },
     "delete_log": "क्या आप वाकई log को हटाना चाहते हैं?",
     "docs": "डॉक्स",
@@ -1035,6 +1037,12 @@
       "format": "'key:value' के रूप में पैरामीटर टाइप करें",
       "label": "फिल्टर चुनें"
     },
-    "custom value": "कस्टम value"
+    "custom value": "कस्टम value",
+    "execution restarted": "इस execution को {nbRestart} बार पुनः प्रारंभ किया गया है।",
+    "chart": "चार्ट",
+    "source only": "केवल स्रोत",
+    "chart preview": "चार्ट पूर्वावलोकन",
+    "execution replayed": "इस execution को पुनः चलाया गया है।",
+    "execution replay": "यह execution <code>{originalId}</code> का पुनरावर्तन है।"
   }
 }

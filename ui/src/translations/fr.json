@@ -694,7 +694,8 @@
               "label": "Schéma de Couleurs du Graphique",
               "classic": "Classique",
               "kestra": "Kestra"
-            }
+            },
+            "logs_font_size": "Taille de police des Logs"
           }
         },
         "localization": {
@@ -871,7 +872,8 @@
       "not_auth": "Vous n'avez pas les autorisations nécessaires pour afficher ce widget.",
       "see_all": "Voir tout",
       "success_ratio_tooltip": "Le ratio de succès est la somme des exécutions en état SUCCESS, CANCELLED et WARNING divisée par le nombre total d'exécutions dans un état terminé.",
-      "failure_ratio_tooltip": "Le ratio d'échec est la somme des exécutions en état FAILED, KILLED et RETRIED divisée par le nombre total d'exécutions dans un état terminé."
+      "failure_ratio_tooltip": "Le ratio d'échec est la somme des exécutions en état FAILED, KILLED et RETRIED divisée par le nombre total d'exécutions dans un état terminé.",
+      "preview": "Aperçu du tableau de bord"
     },
     "delete_log": "Êtes-vous sûr de vouloir supprimer le log ?",
     "docs": "Documentation",
@@ -1035,6 +1037,12 @@
       "format": "Tapez le paramètre comme 'key:value'",
       "label": "Choisir des filtres"
     },
-    "custom value": "Valeur personnalisée"
+    "custom value": "Valeur personnalisée",
+    "execution restarted": "Cette exécution a été redémarrée {nbRestart} fois.",
+    "chart": "Graphique",
+    "source only": "Source uniquement",
+    "chart preview": "Aperçu du graphique",
+    "execution replayed": "Cette exécution a été rejouée.",
+    "execution replay": "Cette exécution est une relecture de <code>{originalId}</code>."
   }
 }

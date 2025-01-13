@@ -41,7 +41,7 @@
     import TopNavBar from "../layout/TopNavBar.vue";
     import permission from "../../models/permission";
     import action from "../../models/action";
-    import State from "../../utils/state";
+    import {State} from "@kestra-io/ui-libs"
     import {apiUrl} from "override/utils/route";
     import {mapState} from "vuex";
 

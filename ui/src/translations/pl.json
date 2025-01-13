@@ -694,7 +694,8 @@
               "label": "Schemat kolorów wykresu",
               "classic": "Klasyczny",
               "kestra": "Kestra"
-            }
+            },
+            "logs_font_size": "Rozmiar czcionki logów"
           }
         },
         "localization": {
@@ -871,7 +872,8 @@
       "not_auth": "Nie masz niezbędnych uprawnień, aby wyświetlić ten widget.",
       "see_all": "Zobacz wszystkie",
       "success_ratio_tooltip": "Wskaźnik Sukcesu to suma wykonań w stanach SUCCESS, CANCELLED i WARNING podzielona przez całkowitą liczbę wykonań w stanie zakończonym.",
-      "failure_ratio_tooltip": "Stosunek niepowodzeń to suma wykonań w stanach FAILED, KILLED i RETRIED podzielona przez całkowitą liczbę wykonań w stanie zakończonym."
+      "failure_ratio_tooltip": "Stosunek niepowodzeń to suma wykonań w stanach FAILED, KILLED i RETRIED podzielona przez całkowitą liczbę wykonań w stanie zakończonym.",
+      "preview": "Podgląd dashboardu"
     },
     "delete_log": "Czy na pewno chcesz usunąć log?",
     "docs": "Dokumentacja",
@@ -1035,6 +1037,12 @@
       "format": "Wpisz parametr jako 'key:value'",
       "label": "Wybierz filtry"
     },
-    "custom value": "Wartość niestandardowa"
+    "custom value": "Wartość niestandardowa",
+    "execution restarted": "Ta wykonanie zostało ponownie uruchomione {nbRestart} raz(y).",
+    "chart": "Wykres",
+    "source only": "Tylko źródło",
+    "chart preview": "Podgląd wykresu",
+    "execution replayed": "To wykonanie zostało odtworzone.",
+    "execution replay": "To wykonanie jest powtórką <code>{originalId}</code>."
   }
 }

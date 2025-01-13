@@ -25,9 +25,8 @@
 <script>
     import LowCodeEditor from "../inputs/LowCodeEditor.vue";
     import {mapGetters, mapState} from "vuex";
-    import {CLUSTER_PREFIX} from "@kestra-io/ui-libs/src/utils/constants";
-    import Utils from "@kestra-io/ui-libs/src/utils/Utils";
-    import STATE from "../../utils/state";
+    import {CLUSTER_PREFIX} from "@kestra-io/ui-libs/src/utils/constants.ts";
+    import {Utils, State} from "@kestra-io/ui-libs";
     import throttle from "lodash/throttle";
     export default {
         components: {
@@ -215,7 +214,7 @@
                 const executionId = taskIdMatchingTaskrun?.outputs?.executionId;
 
                 if(!executionId) {
-                    if(taskIdMatchingTaskrun?.state?.current === STATE.SUCCESS) {
+                    if(taskIdMatchingTaskrun?.state?.current === State.SUCCESS) {
                         // Generating more than 1 subflow execution, we're not showing anything
                         this.loadGraph(true);
                         return;

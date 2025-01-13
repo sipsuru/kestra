@@ -379,7 +379,7 @@
     import Kicon from "../Kicon.vue"
     import Labels from "../layout/Labels.vue"
     import RestoreUrl from "../../mixins/restoreUrl";
-    import State from "../../utils/state";
+    import {State} from "@kestra-io/ui-libs"
     import Id from "../Id.vue";
     import _merge from "lodash/merge";
     import permission from "../../models/permission";

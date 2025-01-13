@@ -12,10 +12,7 @@ import com.google.common.annotations.VisibleForTesting;
 import io.kestra.core.exceptions.IllegalVariableEvaluationException;
 import io.kestra.core.runners.RunContext;
 import io.kestra.core.serializers.JacksonMapper;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.IOException;
 import java.io.Serial;
@@ -44,8 +41,6 @@ public class Property<T> {
     private String expression;
     private T value;
 
-    // used only by the deserializer and in tests
-    @VisibleForTesting
     public Property(String expression) {
         this.expression = expression;
     }
@@ -348,6 +343,11 @@ public class Property<T> {
     // used only by the serializer
     String getExpression() {
         return this.expression;
+    }
+
+    // used only by the value extractor
+    T getValue() {
+        return value;
     }
 
     static class PropertyDeserializer extends StdDeserializer<Property<?>> {
