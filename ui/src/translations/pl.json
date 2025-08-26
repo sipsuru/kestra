@@ -1064,7 +1064,12 @@
     "port": "Port",
     "prefill inputs": "Wypełnij",
     "prev_execution": "Poprzednia wykonanie",
-    "preview": "Podgląd",
+    "preview": {
+      "auto-view": "Auto view",
+      "force-editor": "Enforce editor view",
+      "label": "Preview",
+      "view": "View"
+    },
     "properties": {
       "hidden": "Ukryte w tabeli",
       "hint": "Wybierz widoczne kolumny",
