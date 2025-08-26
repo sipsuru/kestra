@@ -1064,7 +1064,12 @@
     "port": "Порт",
     "prefill inputs": "Предзаполнение",
     "prev_execution": "Предыдущее выполнение",
-    "preview": "Предварительный просмотр",
+    "preview": {
+      "auto-view": "Auto view",
+      "force-editor": "Enforce editor view",
+      "label": "Preview",
+      "view": "View"
+    },
     "properties": {
       "hidden": "Скрыто в таблице",
       "hint": "Выберите видимые столбцы",
