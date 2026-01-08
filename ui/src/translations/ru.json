@@ -1145,7 +1145,9 @@
       "dialog": {
         "deletion": {
           "confirm": "Подтвердить",
+          "file_single": "Are you sure you want to delete the file <code>{name}</code>?",
           "files": "Вы уверены, что хотите удалить <code>{count}</code> файл(ы)?",
+          "folder_single": "Are you sure you want to delete the folder <code>{name}</code> and all of its contents?",
           "folders": "Вы уверены, что хотите удалить <code>{count}</code> папку(и) и все её содержимое?",
           "mixed": "Вы уверены, что хотите удалить папку(и) <code>{folders}</code> и файл(ы) <code>{files}</code>?",
           "title": "Подтвердите удаление содержимого"
