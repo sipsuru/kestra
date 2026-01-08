@@ -1145,7 +1145,9 @@
       "dialog": {
         "deletion": {
           "confirm": "确认",
+          "file_single": "Are you sure you want to delete the file <code>{name}</code>?",
           "files": "您确定要删除 <code>{count}</code> 个文件吗？",
+          "folder_single": "Are you sure you want to delete the folder <code>{name}</code> and all of its contents?",
           "folders": "您确定要删除 <code>{count}</code> 个文件夹及其所有内容吗？",
           "mixed": "您确定要删除 <code>{folders}</code> 个文件夹和 <code>{files}</code> 个文件吗？",
           "title": "确认删除内容"
